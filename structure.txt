@@ -1,0 +1,41 @@
+node_modules/
+src/
+├── config/
+│   ├── container.ts
+│   └── db.ts
+├── controllers/
+│   ├── authController.ts
+│   ├── likeController.ts
+│   ├── postController.ts
+│   └── userController.ts
+├── interfaces/
+│   └── errorInterface.ts
+├── models/
+│   ├── likeModel.ts
+│   ├── postModel.ts
+│   └── userModel.ts
+├── repositories/
+│   ├── likeRepository.ts
+│   ├── postRepository.ts
+│   └── userRepository.ts
+├── routes/
+│   ├── authRouter.ts
+│   ├── likeRouter.ts
+│   ├── postRouter.ts
+│   ├── routes.ts
+│   └── userRouter.ts
+├── services/
+│   ├── authService.ts
+│   ├── likeService.ts
+│   ├── postService.ts
+│   └── userService.ts
+└── utils/
+    ├── util.ts
+    └── index.ts
+.env
+.gitignore
+nodemon.json
+package.json
+package-lock.json
+README.md
+tsconfig.json

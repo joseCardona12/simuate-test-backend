@@ -1,64 +1,95 @@
-## PROJECT BACKEND SIMULATE TEST
+# Project Backend Simulate Test
 
-Este proyecto se enfoca en el backend para preparar a los coders para las pruebas siguiente conectando el back y front.
+Este proyecto se centra en la creación del backend para preparar a los coders para las pruebas, conectando el backend con el frontend.
 
-El proyecto fue creado en js asociado al back con node.js y express.
+El proyecto está desarrollado en JavaScript utilizando Node.js y Express.
 
-## DEPENDENCIAS
+## Dependencias
 
-Las depencias utilizadas son
-**typescript:** SuperTest para agregar tipado al lenguaje js
-**Express:** Es un framework backend para node js.
-Se utiliza para crear aplicaciones web y APIS de forma sencilla.
-**Bcrypt:** Modulo para encriptar la password
-**JsonWebToken:** Modulo para la creación de tokens de
-acceso para manejar el auth en las páginas.
-**cors:** Herramientas que interactua con el navegador para indicarle que dominio diferente al nuestro puede atacar y/o solicitar.
-**Sequelize:** ORM para interactuar con la base de datos
-por medio de objetos
-**Tsyringe:** Modulo para manejar la inyección de dependencias y enfocarnos en el principio SOLID (INVERSIÓN DE DEPENDENCIAS).
-**Nodemon:** Herramienta enfocada en escucahr los cambos a tiempo real y recargar automaticamente.
-**Dotenv:** Dependencia para permitir utilizar las variables de entorno
-**Mysql2:** Modulo para implmentar el sequelize e indicarle el dialecto con la base de datos.
+A continuación, se detallan las dependencias utilizadas en el proyecto:
 
-## Entry
+- **TypeScript**: Añade tipado al lenguaje JavaScript.
+- **SuperTest**: Utilizado para realizar pruebas en aplicaciones web.
+- **Express**: Framework de backend para Node.js, utilizado para crear aplicaciones web y APIs de manera sencilla.
+- **Bcrypt**: Módulo utilizado para encriptar contraseñas.
+- **JsonWebToken (JWT)**: Módulo para la creación de tokens de acceso, utilizado en la autenticación de usuarios.
+- **CORS**: Herramienta que indica al navegador qué dominios pueden interactuar con el servidor.
+- **Sequelize**: ORM (Object-Relational Mapping) que permite interactuar con la base de datos a través de objetos.
+- **Tsyringe**: Módulo para la inyección de dependencias, apoyando el principio SOLID (Inversión de Dependencias).
+- **Nodemon**: Herramienta que monitorea los cambios en tiempo real y reinicia automáticamente el servidor.
+- **Dotenv**: Permite gestionar variables de entorno.
+- **MySQL2**: Módulo para implementar Sequelize con MySQL como base de datos.
 
-El proyecto ingresar por la carpeta ./src/index.ts
+## Punto de Entrada
 
-## Index.ts
+El proyecto inicia en el archivo `./src/index.ts`.
+
+## `index.ts`
 
 Este archivo ejecuta toda la lógica del backend.
 
 ### Middleware
 
-Receptor entre la solicitud y la respuesta.
-Es un intermedario para manejar validaciones y continuar. Se utiliza para crear los endpoints protegidos.
+Un middleware es un intermediario entre las solicitudes y las respuestas. Se utiliza para gestionar validaciones y proteger endpoints.
 
-### express.json
+- **`express.json`**: Middleware que permite la transferencia de datos en formato JSON.
+- **Routes**: Middleware de enrutamiento que actúa como el "frontend" del backend, facilitando la construcción de endpoints.
 
-Middleware para permitir utilizar la transferencia de datos en formato json
+### Programación Orientada a Objetos (POO)
 
-### Routes
-
-Middleaware de enrutamiento. Este sería el frontend del
-backend. Con este middlware condtruimos los endpoints.
-
-### POO
-
-Se utilizó el paradigma orientando objeto. Enfocado en crear clases, propiedades y métodos
+El proyecto utiliza el paradigma de Programación Orientada a Objetos (POO), que se basa en crear clases, propiedades y métodos.
 
 #### Clases
 
-Elemento de este paradigma para englobar el código y crear una plantilla reutilizable. (Crear objetos a partir del padre).
+Son plantillas reutilizables que encapsulan el código para crear objetos.
 
 #### Propiedades
 
-Elementos de la clase, indica las características que
-va a obtener el objeto (color, height, size, etc)
+Características de un objeto, como `color`, `height`, `size`, etc.
 
 #### Métodos
 
-Funciones dentro de una clase. Son las acciones que
-va ocupar el objeto.
+Funciones que representan las acciones que un objeto puede realizar.
 
 ## Arquitectura
+
+El proyecto está estructurado en capas siguiendo el modelo **RCSRM** (Router, Controller, Service, Repository, Model) para delegar responsabilidades de manera clara.
+
+### Routes
+
+Maneja los endpoints del proyecto:
+
+```javascript
+app.use("/api", routes);
+routes.use("/auth", authRouter);
+authRouter.post("/login", AuthController.loginUser);
+```
+
+### Controllers
+
+Gestiona la lógica para delegar las responsabilidades y maneja las propiedades de los endpoints antes de enviarlas al servicio.
+
+### Services
+
+Contiene la lógica del negocio y las operaciones específicas de cada modelo.
+
+### Repositories
+
+Capa de acceso a datos. Es la única capa que interactúa directamente con los modelos.
+
+### Models
+
+Copia o abstración de la entidad en la base de datos.
+Este modelo se migra a la base de datos como entidad
+
+## Config
+
+La carpeta config contiene la lógica para conectar con la base de datos y la configuración del contenedor de dependencias.
+
+### Container
+
+Este archivo registra cada dependencia como un servicio único.
+
+## Utils
+
+Carpeta que contiene métodos auxiliares utilizados a lo largo del proyecto.
