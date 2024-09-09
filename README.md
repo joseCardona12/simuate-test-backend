@@ -93,3 +93,15 @@ Este archivo registra cada dependencia como un servicio único.
 ## Utils
 
 Carpeta que contiene métodos auxiliares utilizados a lo largo del proyecto.
+
+## Endpoints
+
+http://localhost:3060/api/auth/register
+http://localhost:3060/api/auth/login
+http://localhost:3060/api/posts
+http://localhost:3060/api/likes
+http://localhost:3060/api/users
+
+## Descargar la colección en Postman
+
+[Descargar](./collection-api-request.postman_collection.json)
