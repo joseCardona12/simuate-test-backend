@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require("reflect-metadata");
+var tsyringe_1 = require("tsyringe");
+var userService_1 = require("../services/userService");
+var userModel_1 = require("../models/userModel");
+var authService_1 = require("../services/authService");
+var postService_1 = require("../services/postService");
+var postModel_1 = require("../models/postModel");
+var likeModel_1 = require("../models/likeModel");
+var likeService_1 = require("../services/likeService");
+tsyringe_1.container.registerSingleton(userModel_1.default);
+tsyringe_1.container.registerSingleton(authService_1.default);
+tsyringe_1.container.registerSingleton(userService_1.default);
+tsyringe_1.container.registerSingleton(postModel_1.default);
+tsyringe_1.container.registerSingleton(postService_1.default);
+tsyringe_1.container.registerSingleton(likeModel_1.default);
+tsyringe_1.container.registerSingleton(likeService_1.default);

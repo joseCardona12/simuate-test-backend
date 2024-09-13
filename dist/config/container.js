@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+require("reflect-metadata");
+const tsyringe_1 = require("tsyringe");
+const userService_1 = __importDefault(require("../services/userService"));
+const userModel_1 = __importDefault(require("../models/userModel"));
+const authService_1 = __importDefault(require("../services/authService"));
+const postService_1 = __importDefault(require("../services/postService"));
+const postModel_1 = __importDefault(require("../models/postModel"));
+const likeModel_1 = __importDefault(require("../models/likeModel"));
+const likeService_1 = __importDefault(require("../services/likeService"));
+tsyringe_1.container.registerSingleton(userModel_1.default);
+tsyringe_1.container.registerSingleton(authService_1.default);
+tsyringe_1.container.registerSingleton(userService_1.default);
+tsyringe_1.container.registerSingleton(postModel_1.default);
+tsyringe_1.container.registerSingleton(postService_1.default);
+tsyringe_1.container.registerSingleton(likeModel_1.default);
+tsyringe_1.container.registerSingleton(likeService_1.default);
