@@ -1,6 +1,6 @@
 # Project Backend Simulate Test
 
-## Endpoinst
+## Endpoints
 
 Para interactuar con los endpoinst desplegados,
 se requiere utilizar para las pruebas **POSTMAN**
@@ -465,7 +465,7 @@ https://simuate-test-backend-1.onrender.com/api/likes/1
 }
 ```
 
-**Eliminar api/auth/register**
+**Registrar api/auth/register**
 
 #### Método POST
 
@@ -484,31 +484,6 @@ https://simuate-test-backend-1.onrender.com/api/auth/register
     "email": "emilCreate,
     "password": solicitud
 }
-
-
-- Respuesta caso Error
-
-```
-
-{
-"message": "Is necesary all params quantity, post_id"
-}
-
-```
-
-## Eliminar api/auth/login
-
-#### Método POST
-- Cabecera
-
-```
-
-https://simuate-test-backend-1.onrender.com/api/auth/login
-
-```
-
-- Body de la solicitud
-
 ```
 
 {
@@ -518,12 +493,40 @@ https://simuate-test-backend-1.onrender.com/api/auth/login
 
 - Respuesta caso Error
 
-````
+```
 {
 "message": "Is necesary all params quantity, post_id"
 }
+```
 
------------------------------------------
+**Login api/auth/login**
+
+#### Método POST
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/auth/login
+
+```
+
+- Body de la solicitud
+
+```
+{
+    "email": "emilCreate,
+    "password": solicitud
+}
+```
+
+## Pasos
+
+1. Instalar Postman
+2. Crear pruebas con los diferentes métodos
+3. El enpoint se coloca en la mitad
+
+## Proyecto ----
+
 Este proyecto se centra en la creación del backend para preparar a los coders para las pruebas, conectando el backend con el frontend.
 
 El proyecto está desarrollado en JavaScript utilizando Node.js y Express.
@@ -587,7 +590,7 @@ Maneja los endpoints del proyecto:
 app.use("/api", routes);
 routes.use("/auth", authRouter);
 authRouter.post("/login", AuthController.loginUser);
-````
+```
 
 ### Controllers
 
