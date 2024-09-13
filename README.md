@@ -1,5 +1,529 @@
 # Project Backend Simulate Test
 
+## Endpoinst
+
+Para interactuar con los endpoinst desplegados,
+se requiere utilizar para las pruebas **POSTMAN**
+
+### Entidad users
+
+La servicio **users** tiene los métodos para:
+
+**Obtener los users:**
+
+#### Método GET
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/users
+```
+
+- Respuesta
+
+```
+{
+    "message": "users found",
+    "users": [
+        {
+            "id": 3,
+            "name": "jose",
+            "email": "jose@gmail.com",
+            "password": "dasd"
+        }
+    ]
+}
+```
+
+**Obtener user por id:**
+
+#### Método GET
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/users/1
+
+```
+
+**Nota:** El {1} es la variable que debes pasar por la cabecera, de tipo number
+
+- Respuesta
+
+```
+{
+    "messae": "User found",
+    "user": {
+        "id": 10,
+        "name": "samuel",
+        "email": "samuel@gmail.com",
+        "password": "$2b$10$o0dh5XkjbUO26IY98/AU5uN9XTFmymWVD5DP.zcr/jm5oV0yFtsT6"
+    }
+}
+```
+
+- Respuesta Incorrecta
+
+```
+{
+    "messae": "User found",
+    "user": null
+}
+```
+
+**Crear user:**
+
+#### Método POST
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/users/
+```
+
+- Body de la solicitud
+
+```
+{
+    "name": "example",
+    "email": "example@gmail.com",
+    "password": "password"
+}
+```
+
+- Respuesta
+
+```
+{
+    "message": "Created user correctly",
+    "user": {
+        "id": 134,
+        "name": "test",
+        "email": "test deploy2das",
+        "password": "test"
+    }
+}
+```
+
+**Actualizar user:**
+
+#### Método PUT
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/users/1
+```
+
+**Nota:** El {1} es la variable que debes pasar por la cabecera, de tipo number
+
+- Body de la solicitud
+
+```
+{
+    "name": "example Update",
+    "email": "example@gmail.com",
+    "password": "password"
+}
+```
+
+- Respuesta
+
+```
+{
+    "message": "Updated user correctly"
+}
+```
+
+**Eliminar user:**
+
+#### Método DELETE
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/users/1
+```
+
+**Nota:** El {1} es la variable que debes pasar por la cabecera, de tipo number
+
+- Respuesta
+
+```
+{
+    "message": "Deleted user correctly"
+}
+```
+
+### Entidad Posts
+
+**Obtener los posts:**
+
+#### Método GET
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/posts
+```
+
+- Respuesta
+
+```
+{
+    "message": "Posts found",
+    "posts": [
+        {
+            "id": 195,
+            "title": "riwi",
+            "description": "sin palabras",
+            "user_id": 16
+        }
+    ]
+}
+```
+
+**Obtener post por id:**
+
+#### Método GET
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/posts/1
+
+```
+
+**Nota:** El {1} es la variable que debes pasar por la cabecera, de tipo number
+
+- Respuesta
+
+```
+{
+    "message": "Post found",
+    "post": {
+        "id": 195,
+        "title": "riwi",
+        "description": "sin palabras",
+        "user_id": 16
+    }
+}
+```
+
+- Respuesta Incorrecta
+
+```
+{
+    "message": "Post found",
+    "post": null
+}
+```
+
+**Crear post:**
+
+#### Método POST
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/posts/
+```
+
+- Body de la solicitud
+
+```
+{
+    "title": "title",
+    "description": "description",
+    "user_id": 1
+}
+```
+
+- Respuesta
+
+```
+{
+    "message": "Created post correctly",
+    "post": {
+        "id": 204,
+        "title": "title",
+        "description": "description",
+        "user_id": 3
+    }
+}
+```
+
+- Respuesta caso Error
+
+```
+{
+    "message": "Error to create post",
+    "error": {
+        "name": "SequelizeForeignKeyConstraintError",
+        "parent": {
+            "code": "ER_NO_REFERENCED_ROW_2",
+            "errno": 1452,
+            "sqlState": "23000",}
+    }
+}
+```
+
+**Actualizar posts:**
+
+#### Método PUT
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/posts/1
+```
+
+**Nota:** El {1} es la variable que debes pasar por la cabecera, de tipo number
+
+- Body de la solicitud
+
+```
+{
+    "title": "title update",
+    "description": "description update",
+    "user_id": 1
+}
+```
+
+- Respuesta
+
+```
+{
+    "message": "Updated post correctly"
+}
+```
+
+**Eliminar post:**
+
+#### Método DELETE
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/posts/1
+```
+
+**Nota:** El {1} es la variable que debes pasar por la cabecera, de tipo number
+
+- Respuesta
+
+```
+{
+    "message": "Deleted post correctly"
+}
+```
+
+### Entidad likes
+
+**Obtener los likes:**
+
+#### Método GET
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/likes
+```
+
+- Respuesta
+
+```
+{
+    "message": "Likes found",
+    "likes": []
+}
+```
+
+**Obtener like por id:**
+
+#### Método GET
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/likes/1
+
+```
+
+**Nota:** El {1} es la variable que debes pasar por la cabecera, de tipo number
+
+- Respuesta
+
+```
+{
+    "message": "Like found",
+    "like": {
+        "id": 538,
+        "quantity": 1,
+        "post_id": 195
+    }
+}
+```
+
+- Respuesta Incorrecta
+
+```
+{
+    "message": "Like not found"
+}
+```
+
+**Crear likes:**
+
+#### Método POST
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/likes/
+```
+
+- Body de la solicitud
+
+```
+{
+    "quantity": 1,
+    "post_id": 195
+}
+```
+
+- Respuesta
+
+```
+{
+    "message": "Created like correctly",
+    "createdLike": {
+        "id": 538,
+        "quantity": 1,
+        "post_id": 195
+    }
+}
+```
+
+- Respuesta caso Error
+
+```
+{
+    "message": "Is necesary all params quantity, post_id"
+}
+```
+
+**Actualizar likes:**
+
+#### Método PUT
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/likes/1
+```
+
+**Nota:** El {1} es la variable que debes pasar por la cabecera, de tipo number
+
+- Body de la solicitud
+
+```
+    "likes": [
+        {
+            "id": 538,
+            "quantity": 1,
+            "post_id": 195
+        }
+    ]
+```
+
+- Respuesta
+
+```
+{
+    "message": "Updated like correctly"
+}
+```
+
+**Eliminar like:**
+
+#### Método DELETE
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/likes/1
+```
+
+**Nota:** El {1} es la variable que debes pasar por la cabecera, de tipo number
+
+- Respuesta
+
+```
+{
+    "message": "Deleted like correctly"
+}
+```
+
+**Eliminar api/auth/register**
+
+#### Método POST
+
+- Cabecera
+
+```
+https://simuate-test-backend-1.onrender.com/api/auth/register
+
+```
+
+- Body de la solicitud
+
+```
+{
+    "name": "create",
+    "email": "emilCreate,
+    "password": solicitud
+}
+
+
+- Respuesta caso Error
+
+```
+
+{
+"message": "Is necesary all params quantity, post_id"
+}
+
+```
+
+## Eliminar api/auth/login
+
+#### Método POST
+- Cabecera
+
+```
+
+https://simuate-test-backend-1.onrender.com/api/auth/login
+
+```
+
+- Body de la solicitud
+
+```
+
+{
+"name": "create",
+"email": "emilCreate
+}
+
+- Respuesta caso Error
+
+````
+{
+"message": "Is necesary all params quantity, post_id"
+}
+
+-----------------------------------------
 Este proyecto se centra en la creación del backend para preparar a los coders para las pruebas, conectando el backend con el frontend.
 
 El proyecto está desarrollado en JavaScript utilizando Node.js y Express.
@@ -63,7 +587,7 @@ Maneja los endpoints del proyecto:
 app.use("/api", routes);
 routes.use("/auth", authRouter);
 authRouter.post("/login", AuthController.loginUser);
-```
+````
 
 ### Controllers
 
@@ -93,15 +617,3 @@ Este archivo registra cada dependencia como un servicio único.
 ## Utils
 
 Carpeta que contiene métodos auxiliares utilizados a lo largo del proyecto.
-
-## Endpoints
-
-http://localhost:3060/api/auth/register
-http://localhost:3060/api/auth/login
-http://localhost:3060/api/posts
-http://localhost:3060/api/likes
-http://localhost:3060/api/users
-
-## Descargar la colección en Postman
-
-[Descargar](./collection-api-request.postman_collection.json)
